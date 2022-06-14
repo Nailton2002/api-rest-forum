@@ -1,4 +1,4 @@
-package br.com.alura.forum.config.validacao;
+package br.com.forum.config.validacao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,11 @@ public class ErroDeValidacaoHandler {
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public List<ErroDeFormularioDto> handle(MethodArgumentNotValidException exception) {
+		
 		List<ErroDeFormularioDto> dto = new ArrayList<>();
 
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
+		
 		fieldErrors.forEach(e -> {
 			String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale());
 			ErroDeFormularioDto erro = new ErroDeFormularioDto(e.getField(), mensagem);

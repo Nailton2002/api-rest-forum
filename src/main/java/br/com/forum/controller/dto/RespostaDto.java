@@ -1,8 +1,8 @@
-package br.com.alura.forum.controller.dto;
+package br.com.forum.controller.dto;
 
 import java.time.LocalDateTime;
 
-import br.com.alura.forum.modelo.Resposta;
+import br.com.forum.modelo.Resposta;
 
 public class RespostaDto {
 
